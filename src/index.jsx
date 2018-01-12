@@ -17,5 +17,8 @@ function renderApp() {
 renderApp();
 
 if (module.hot) {
-    module.hot.accept('./components/Page.jsx', renderApp);
+    module.hot.accept('./components/Page.jsx', () => {
+        const NextApp = require('./components/Page.jsx').default;
+        renderApp();
+    });
 }
